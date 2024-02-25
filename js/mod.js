@@ -19,7 +19,8 @@ let VERSION = {
 
 let changelog = `<h1>Changelog:</h1><br>
 	<h3>v0.0.2 - (almost) Literally nothing</h3><br>
-		- i started this. lel.`
+		- i started this. lel.
+		- added Alpha, Beta and...`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -42,6 +43,14 @@ function getPointGen() {
 		return new Decimal(0)
 
 	let gain = new Decimal(1)
+
+	// Alpha upgrades
+	if (hasUpgrade('a', 11)) gain = gain.mul(20)
+	if (hasUpgrade('a', 12)) gain = gain.mul(3)
+	if (hasUpgrade('a', 13)) gain = gain.mul(upgradeEffect('a', 13))
+	if (hasUpgrade('a', 21)) gain = gain.mul(1.5)
+	if (hasUpgrade('a', 22)) gain = gain.mul(upgradeEffect('a', 13))
+	if (hasUpgrade('a', 23)) gain = gain.mul(1.5)
 	return gain
 }
 
