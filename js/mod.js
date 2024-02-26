@@ -45,7 +45,7 @@ function getPointGen() {
 	let gain = new Decimal(1)
 
 	// Alpha upgrades
-	if (hasUpgrade('a', 11)) gain = gain.mul(20)
+	if (hasUpgrade('a', 11)) gain = gain.mul(2)
 	if (hasUpgrade('a', 12)) gain = gain.mul(3)
 	if (hasUpgrade('a', 13)) gain = gain.mul(upgradeEffect('a', 13))
 	if (hasUpgrade('a', 21)) gain = gain.mul(1.5)
