@@ -59,7 +59,7 @@ function getPointGen() {
 	if (hasUpgrade('a', 21)) gain = gain.mul(1.5)
 	if (hasUpgrade('a', 22)) gain = gain.mul(upgradeEffect('a', 22))
 	if (hasUpgrade('a', 23)) gain = gain.mul(1.5)
-	if (hasUpgrade('b', 13)) gain = gain.pow(1.5)
+	if (hasUpgrade('b', 13)) gain = gain.pow(1.12)
 	if (hasUpgrade('b', 12)) gain = gain.mul(upgradeEffect('b', 12))
 	if (hasAchievement('Ach', 13)) gain = gain.pow(0.1)
 	return gain

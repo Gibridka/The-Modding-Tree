@@ -133,13 +133,13 @@ addLayer("b", {
             description() {return "Multiply point gain based on your Betas."},
             cost: new Decimal(20),
             unlocked() { return (hasUpgrade(this.layer, 11))},
-            effect() {return player.b.points.max(0).add(1).root(10)},
+            effect() {return player.b.points.max(0).add(1).root(2)},
             effectDisplay() {return "x"+format(upgradeEffect(this.layer, this.id))},
-            tooltip: "(β+1)^1/10. i think that a little, but help you."            
+            tooltip: "(β+1)^1/2. i think that a little, but help you."            
         },
         13: {
             title: "[TEMP]its on fire.",
-            description() {return "point^1.05. thats it."},
+            description() {return "point^1.12. thats it."},
             cost: new Decimal(100),
             unlocked() { return (hasUpgrade(this.layer, 12))},
             tooltip: "WE DOING A LITTLE TROLLING."            
