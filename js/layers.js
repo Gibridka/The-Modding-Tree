@@ -18,6 +18,7 @@ addLayer("a", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
         if (hasUpgrade('a', 31)) mult = mult.mul(3)
+        if (hasUpgrade('b', 14)) mult = mult.pow(2)
         return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -41,9 +42,9 @@ addLayer("a", {
             description() {return "Multiply point gain based on your alphas"},
             unlocked() { return (hasUpgrade(this.layer, 12))},
             cost: new Decimal(4),
-            effect() {return player.a.points.max(0).add(1).root(2)},
+            effect() {return player.a.points.max(0).add(1).root(3)},
             effectDisplay() {return "x"+format(upgradeEffect(this.layer, this.id))},
-            tooltip: "to be clear, its root(α+1)"
+            tooltip: "to be clear, its (α+1)^(1/3)"
         },
         21: {
             title: "The more...",
@@ -114,11 +115,35 @@ addLayer("b", {
     row: 1, // Row the layer is in on the tree (0 is the first row)
 
     upgrades: {
-        //11: {
-            //title: "Restore",
-            //description() {return "Unlock more upgrades... some way later."},
-            //cost: new Decimal(1)
-        //},
+        11: {
+            title: "Its done (for now).",
+            description() {return "#itstemp and also useless."},
+            cost: new Decimal(50),
+            tooltip: "on next update, it maybe begone. ALSO UNBALANCED CRAP FOR NOW."            
+        },
+        12: {
+            title: "a little overcooked",
+            description() {return "Multiply point gain based on your Betas."},
+            cost: new Decimal(800),
+            unlocked() { return (hasUpgrade(this.layer, 11))},
+            effect() {return player.b.points.max(0).add(1).root(10)},
+            effectDisplay() {return "x"+format(upgradeEffect(this.layer, this.id))},
+            tooltip: "(β+1)^1/10. i think that a little, but help you."            
+        },
+        13: {
+            title: "its on fire.",
+            description() {return "point^1.05. thats it."},
+            cost: new Decimal(100000),
+            unlocked() { return (hasUpgrade(this.layer, 12))},
+            tooltip: "WE DOING A LITTLE TROLLING."            
+        },
+        14: {
+            title: "stop.",
+            description() {return "alpha^2. bruh."},
+            cost: new Decimal(1e15),
+            unlocked() { return (hasUpgrade(this.layer, 13))},
+            tooltip: "ah. free at less."            
+        },
     },
     hotkeys: [
         { key: "b", description: "B: Reset for Beta", onPress() { if (canReset(this.layer)) doReset(this.layer) } },
@@ -130,7 +155,7 @@ addLayer("Ach", {
     startData() { return {
         unlocked: true,
     }},
-    color: "yellow",
+    color: "#a3a322",
     resource: "achievements", 
     row: "side",
     tooltip() { // Optional, tooltip displays when the layer is locked
@@ -148,7 +173,13 @@ addLayer("Ach", {
             name: "Learning Alphabet",
             done() {return player.b.points.gte(1)},
             goalTooltip: "Maybe you need... something new.", 
-            doneTooltip: "Get 5 Betas at same time. \n\nReward: Nothing. :skull:", // Showed when the achievement is completed
+            doneTooltip: "Get first Beta. \n\nReward: Nothing. :skull:", // Showed when the achievement is completed
+        },
+        13: {
+            name: "fish",
+            done() {return (hasUpgrade('b', 14))},
+            goalTooltip: "go crazy.", 
+            doneTooltip: "[removed]. \n\nReward: point^0.1. gud luck.", // Showed when the achievement is completed
         },
     },
 },

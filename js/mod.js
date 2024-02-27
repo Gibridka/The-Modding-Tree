@@ -13,14 +13,21 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.2",
-	name: "(almost) Literally nothing",
+	num: "0.0.25",
+	name: "still (almost) Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
+	<h3>v0.0.25 - still (almost) Literally nothing</h3><br>
+	- made some unbalanced tempcrap for Beta layer<br>
+	- new achievement<br>
+	- onion in next update.<br>
+	- if something not working, ping.<br>
+	<br>
 	<h3>v0.0.2 - (almost) Literally nothing</h3><br>
-		- i started this. lel.
-		- added Alpha, Beta and...`
+		- i started this. lel.<br>
+		- added Alpha and Beta<br>
+		- 6 upgrades and 2 achievements<br>`
 
 let winText = `Congratulations! You have reached the end and beaten this game, but for now...`
 
@@ -49,8 +56,11 @@ function getPointGen() {
 	if (hasUpgrade('a', 12)) gain = gain.mul(3)
 	if (hasUpgrade('a', 13)) gain = gain.mul(upgradeEffect('a', 13))
 	if (hasUpgrade('a', 21)) gain = gain.mul(1.5)
-	if (hasUpgrade('a', 22)) gain = gain.mul(upgradeEffect('a', 13))
+	if (hasUpgrade('a', 22)) gain = gain.mul(upgradeEffect('a', 22))
 	if (hasUpgrade('a', 23)) gain = gain.mul(1.5)
+	if (hasUpgrade('b', 13)) gain = gain.pow(1.5)
+	if (hasUpgrade('b', 12)) gain = gain.mul(upgradeEffect('b', 12))
+	if (hasAchievement('Ach', 13)) gain = gain.pow(0.1)
 	return gain
 }
 
