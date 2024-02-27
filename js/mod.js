@@ -22,7 +22,7 @@ let changelog = `<h1>Changelog:</h1><br>
 	- made some unbalanced tempcrap for Beta layer<br>
 	- new achievement<br>
 	- onion in next update.<br>
-	- if something not working, ping.<br>
+	- update: more rebalanced for god of balance.<br>
 	<br>
 	<h3>v0.0.2 - (almost) Literally nothing</h3><br>
 		- i started this. lel.<br>
@@ -52,6 +52,7 @@ function getPointGen() {
 	let gain = new Decimal(1)
 
 	// Alpha upgrades
+	if (hasUpgrade('a', 11) && hasUpgrade('b', 11)) gain = gain.mul(10)
 	if (hasUpgrade('a', 11)) gain = gain.mul(2)
 	if (hasUpgrade('a', 12)) gain = gain.mul(3)
 	if (hasUpgrade('a', 13)) gain = gain.mul(upgradeEffect('a', 13))

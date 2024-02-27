@@ -58,7 +58,7 @@ addLayer("a", {
             description() {return "Multiply point gain based on your points."},
             unlocked() { return (hasUpgrade(this.layer, 21))},
             cost: new Decimal(20),
-            effect() {return player.a.points.max(0).add(1).root(100)},
+            effect() {return player.points.max(0).add(1).root(100)},
             effectDisplay() {return "x"+format(upgradeEffect(this.layer, this.id))},
             tooltip: "root100(points+1). not a lot, but better then nothing."
         },    
@@ -81,6 +81,13 @@ addLayer("a", {
             unlocked() { return (hasUpgrade(this.layer, 31))},
             cost: new Decimal(125),
             tooltip: "or... it should. for now its unlocking the Beta layer."            
+        },
+        33: {
+            title: "[TEMP]get overcooked",
+            description() {return ":) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :) :)"},
+            unlocked() { return (hasUpgrade('b', 14))},
+            cost: new Decimal(1000),
+            tooltip: "wait as long as you can."            
         },
     },
     hotkeys: [
@@ -116,13 +123,13 @@ addLayer("b", {
 
     upgrades: {
         11: {
-            title: "Its done (for now).",
-            description() {return "#itstemp and also useless."},
-            cost: new Decimal(50),
-            tooltip: "on next update, it maybe begone. ALSO UNBALANCED CRAP FOR NOW."            
+            title: "[TEMP]Its done (for now).",
+            description() {return "[Double it.] now ten times better."},
+            cost: new Decimal(1),
+            tooltip: "tempcarp starts there."            
         },
         12: {
-            title: "a little overcooked",
+            title: "[TEMP]a little overcooked",
             description() {return "Multiply point gain based on your Betas."},
             cost: new Decimal(800),
             unlocked() { return (hasUpgrade(this.layer, 11))},
@@ -131,14 +138,14 @@ addLayer("b", {
             tooltip: "(β+1)^1/10. i think that a little, but help you."            
         },
         13: {
-            title: "its on fire.",
+            title: "[TEMP]its on fire.",
             description() {return "point^1.05. thats it."},
             cost: new Decimal(100000),
             unlocked() { return (hasUpgrade(this.layer, 12))},
             tooltip: "WE DOING A LITTLE TROLLING."            
         },
         14: {
-            title: "stop.",
+            title: "[TEMP]stop.",
             description() {return "alpha^2. bruh."},
             cost: new Decimal(1e15),
             unlocked() { return (hasUpgrade(this.layer, 13))},
@@ -179,7 +186,7 @@ addLayer("Ach", {
             name: "fish",
             done() {return (hasUpgrade('b', 14))},
             goalTooltip: "go crazy.", 
-            doneTooltip: "[removed]. \n\nReward: point^0.1. gud luck.", // Showed when the achievement is completed
+            doneTooltip: "[TEMP][removed]. \n\nReward: point^0.1. gud luck.", // Showed when the achievement is completed
         },
     },
 },
