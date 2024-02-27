@@ -13,16 +13,16 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0.25",
+	num: "0.0.27",
 	name: "still (almost) Literally nothing",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0.25 - still (almost) Literally nothing</h3><br>
+	<h3>v0.0.27 - still (almost) Literally nothing</h3><br>
 	- made some unbalanced tempcrap for Beta layer<br>
 	- new achievement<br>
 	- onion in next update.<br>
-	- update: more rebalanced for god of balance.<br>
+	- update: more balance for god of balance.<br>
 	<br>
 	<h3>v0.0.2 - (almost) Literally nothing</h3><br>
 		- i started this. lel.<br>

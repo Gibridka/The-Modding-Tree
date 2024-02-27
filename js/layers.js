@@ -131,7 +131,7 @@ addLayer("b", {
         12: {
             title: "[TEMP]a little overcooked",
             description() {return "Multiply point gain based on your Betas."},
-            cost: new Decimal(800),
+            cost: new Decimal(20),
             unlocked() { return (hasUpgrade(this.layer, 11))},
             effect() {return player.b.points.max(0).add(1).root(10)},
             effectDisplay() {return "x"+format(upgradeEffect(this.layer, this.id))},
@@ -140,14 +140,14 @@ addLayer("b", {
         13: {
             title: "[TEMP]its on fire.",
             description() {return "point^1.05. thats it."},
-            cost: new Decimal(100000),
+            cost: new Decimal(100),
             unlocked() { return (hasUpgrade(this.layer, 12))},
             tooltip: "WE DOING A LITTLE TROLLING."            
         },
         14: {
             title: "[TEMP]stop.",
             description() {return "alpha^2. bruh."},
-            cost: new Decimal(1e15),
+            cost: new Decimal(1e6),
             unlocked() { return (hasUpgrade(this.layer, 13))},
             tooltip: "ah. free at less."            
         },
